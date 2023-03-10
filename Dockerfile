@@ -6,7 +6,8 @@ RUN npm install -g @angular/cli -g
 COPY ./package.json .
 RUN npm install
 COPY . .
-RUN ng build --prod
+RUN ng build
+#RUN ng build --prod
 
 FROM nginx:1.17.1-alpine
 #FROM nginx as runtime
