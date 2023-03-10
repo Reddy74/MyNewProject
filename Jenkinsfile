@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Fetch source code') {
             steps {
-                git 'https://github.com/Reddy74/my-first-project.git'
+                git 'https://github.com/Reddy74/MyNewProject.git'
             }
         }
         stage('Build Docker image') {
