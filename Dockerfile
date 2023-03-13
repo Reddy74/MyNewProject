@@ -1,20 +1,33 @@
-FROM node:17.9.1 as base
+FROM node:17 as build
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
- 
-FROM node:17.9.1 AS build
-WORKDIR /src
-RUN npm install -g @angular/cli -g
+
+RUN npm install -g @angular/cli
+
 COPY ./package.json .
 RUN npm install
 COPY . .
 RUN ng build
-#RUN ng build --prod
 
-FROM nginx:1.17.1-alpine
-#FROM nginx as runtime
+FROM nginx as runtime
 COPY --from=build /app/dist/* /usr/share/nginx/html
+
+#FROM node:17.9.1 as base
+#WORKDIR /app
+#EXPOSE 80
+#EXPOSE 443
+ 
+#FROM node:17.9.1 AS build
+#WORKDIR /src
+#RUN npm install -g @angular/cli -g
+#COPY ./package.json .
+#RUN npm install
+#COPY . .
+#RUN ng build
+
+
+#FROM nginx:1.17.1-alpine
+
+#COPY --from=build /app/dist/* /usr/share/nginx/html
 
 
 #COPY ["DemoNetCoreWebAPI/DemoNetCoreWebAPI.csproj", "DemoNetCoreWebAPI/"]
@@ -31,3 +44,4 @@ COPY --from=build /app/dist/* /usr/share/nginx/html
 #WORKDIR /app
 #COPY --from=publish /app/publish .
 #ENTRYPOINT ["dotnet", "DemoNetCoreWebAPI.dll"]
+
