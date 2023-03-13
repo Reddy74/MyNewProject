@@ -14,7 +14,7 @@ RUN ng build
 
 FROM nginx:1.17.1-alpine
 #FROM nginx as runtime
-COPY --from=build /app/dist/MyAngularApp /usr/share/nginx/html
+COPY --from=build /app/dist/* /usr/share/nginx/html
 
 
 #COPY ["DemoNetCoreWebAPI/DemoNetCoreWebAPI.csproj", "DemoNetCoreWebAPI/"]
