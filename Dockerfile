@@ -12,8 +12,8 @@ COPY . .
 RUN ng build
 #RUN ng build --prod
 
-FROM nginx:1.17.1-alpine
-#FROM nginx as runtime
+#FROM nginx:1.17.1-alpine
+FROM nginx as runtime
 COPY --from=build /app/dist/* /usr/share/nginx/html
 
 
