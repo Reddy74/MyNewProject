@@ -1,47 +1,9 @@
-FROM node:17 as build
-WORKDIR /app
-
-RUN npm install -g @angular/cli
-
-COPY ./package.json .
-RUN npm install
-COPY . .
-RUN ng build
-
-FROM nginx as runtime
-COPY --from=build /app/dist/* /usr/share/nginx/html
-
-#FROM node:17.9.1 as base
-#WORKDIR /app
-#EXPOSE 80
-#EXPOSE 443
- 
-#FROM node:17.9.1 AS build
-#WORKDIR /src
-#RUN npm install -g @angular/cli -g
-#COPY ./package.json .
-#RUN npm install
-#COPY . .
-#RUN ng build
-
-
-#FROM nginx:1.17.1-alpine
-
-#COPY --from=build /app/dist/* /usr/share/nginx/html
-
-
-#COPY ["DemoNetCoreWebAPI/DemoNetCoreWebAPI.csproj", "DemoNetCoreWebAPI/"]
-#RUN dotnet restore "DemoNetCoreWebAPI/DemoNetCoreWebAPI.csproj"
-#COPY . .
-#WORKDIR "/src/DemoNetCoreWebAPI"
-#RUN dotnet build "DemoNetCoreWebAPI.csproj" -c Release -o /app/build
- 
-#FROM build AS publish
-#RUN dotnet publish "DemoNetCoreWebAPI.csproj" -c Release -o /app/publish
-
- 
-#FROM base AS final
-#WORKDIR /app
-#COPY --from=publish /app/publish .
-#ENTRYPOINT ["dotnet", "DemoNetCoreWebAPI.dll"]
-
+# Use an official Node.js runtime as a parent image
+FROM node:14 # Set the working directory to /app
+WORKDIR /app # Copy the package.json and package-lock.json files to the container
+COPY package*.json ./ # Install dependencies
+RUN npm install # Copy the rest of the application files to the container
+COPY . . # Set environment variables
+ENV PORT=3000 # Expose port 3000 for the app to listen on
+EXPOSE 3000 # Start the application
+CMD [ "npm", "start" ]
