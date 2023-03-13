@@ -1,4 +1,4 @@
-FROM node:14.2.0-alpine3.11 as build
+FROM node:18.10 as build
 WORKDIR /app
 
 RUN npm install -g @angular/cli
@@ -9,4 +9,4 @@ COPY . .
 RUN ng build
 
 FROM nginx as runtime
-COPY --from=build /app/dist/MyAngularApp /usr/share/nginx/html
+COPY --from=build /app/dist/* /usr/share/nginx/html
