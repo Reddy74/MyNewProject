@@ -3,11 +3,11 @@ pipeline {
  environment {  
   //dotnet = 'C:\\Program Files\\dotnet\\dotnet.exe'
   DATE = new Date().format('yy.M')
-  TAG = "${DATE}.${BUILD_NUMBER}"
+  TAG = "${BUILD_NUMBER}"
   AWS_ACCOUNT_ID="670166063118"
   AWS_DEFAULT_REGION="us-east-1"
   IMAGE_REPO_NAME="angularapp"
-  IMAGE_TAG="${DATE}.${BUILD_NUMBER}"
+  IMAGE_TAG="${BUILD_NUMBER}"
   REPOSITORY_URI = "670166063118.dkr.ecr.us-east-1.amazonaws.com/angularapp"
   AWS_ECR_REGION = 'us-east-1'
   AWS_ECS_SERVICE = 'AngualAppService'
