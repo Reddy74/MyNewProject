@@ -13,7 +13,7 @@ pipeline {
   AWS_ECS_SERVICE = 'AngualAppService'
   AWS_ECS_TASK_DEFINITION = 'AngualAppTask'
   AWS_ECS_COMPATIBILITY = 'FARGATE'
-  AWS_ECS_NETWORK_MODE = 'awsvpc'
+  AWS_ECS_NETWORK_MODE = 'vpc-55c9682d'
   AWS_ECS_CPU = '256'
   AWS_ECS_MEMORY = '512'
   AWS_ECS_CLUSTER = 'AngualAppCluster'
