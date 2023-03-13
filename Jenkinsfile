@@ -1,10 +1,7 @@
 pipeline {  
  agent any  
  environment {  
-  //dotnet = 'C:\\Program Files\\dotnet\\dotnet.exe' 
-  env.NODE_HOME="${tool 'Node 17.9.1'}"
-  env.PATH="${env.NODE_HOME}/bin:${env.PATH}"
-  sh 'npm -version' 
+  //dotnet = 'C:\\Program Files\\dotnet\\dotnet.exe'
   DATE = new Date().format('yy.M')
   TAG = "${DATE}.${BUILD_NUMBER}"
   AWS_ACCOUNT_ID="670166063118"
