@@ -1,9 +1,9 @@
-FROM node:17 as base
+FROM node:17.9.1 as base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
  
-FROM node:17 AS build
+FROM node:17.9.1 AS build
 WORKDIR /src
 RUN npm install -g @angular/cli -g
 COPY ./package.json .
@@ -12,8 +12,8 @@ COPY . .
 RUN ng build
 #RUN ng build --prod
 
-#FROM nginx:1.17.1-alpine
-FROM nginx as runtime
+FROM nginx:1.17.1-alpine
+#FROM nginx as runtime
 COPY --from=build /app/dist/* /usr/share/nginx/html
 
 
