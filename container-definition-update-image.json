@@ -32,7 +32,7 @@
     ],
     "family": "AngualAppTask",
     "executionRoleArn": "arn:aws:iam::670166063118:role/ecsTaskExecutionRole",
-    "networkMode": "vpc-55c9682d",
+    "networkMode": "awsvpc",
     "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
