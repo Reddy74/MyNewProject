@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "application",
-            "image": "670166063118.dkr.ecr.us-east-1.amazonaws.com/angularapp:${BUILD_NUMBER}",
+            "image": "670166063118.dkr.ecr.us-east-1.amazonaws.com/angularapp:$IMAGE_TAG",
             "cpu": 0,
             "portMappings": [
                 {
