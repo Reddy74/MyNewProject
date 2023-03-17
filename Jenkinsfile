@@ -7,7 +7,7 @@ pipeline {
   AWS_ACCOUNT_ID="670166063118"
   AWS_DEFAULT_REGION="us-east-1"
   IMAGE_REPO_NAME="mynewproject"
-  IMAGE_TAG="${env.BUILD_ID}"
+  IMAGE_TAG="${BUILD_NUMBER}"
   REPOSITORY_URI = "670166063118.dkr.ecr.us-east-1.amazonaws.com/mynewproject"
   AWS_ECR_REGION = 'us-east-1'
   AWS_ECS_SERVICE = 'mynewprojectService'
