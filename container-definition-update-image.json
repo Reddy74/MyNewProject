@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:670166063118:task-definition/AngualAppTask:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:670166063118:task-definition/mynewprojectTask:1",
     "containerDefinitions": [
         {
             "name": "application",
-            "image": "670166063118.dkr.ecr.us-east-1.amazonaws.com/angularapp:$IMAGE_TAG",
+            "image": "670166063118.dkr.ecr.us-east-1.amazonaws.com/mynewproject:$IMAGE_TAG",
             "cpu": 0,
             "portMappings": [
                 {
@@ -23,7 +23,7 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/AngualAppTask",
+                    "awslogs-group": "/ecs/mynewprojectTask",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
                 }
