@@ -6,17 +6,17 @@ pipeline {
   TAG = "${BUILD_NUMBER}"
   AWS_ACCOUNT_ID="670166063118"
   AWS_DEFAULT_REGION="us-east-1"
-  IMAGE_REPO_NAME="angulardemo"
+  IMAGE_REPO_NAME="mynewproject"
   IMAGE_TAG="${env.BUILD_ID}"
-  REPOSITORY_URI = "670166063118.dkr.ecr.us-east-1.amazonaws.com/angulardemo"
+  REPOSITORY_URI = "670166063118.dkr.ecr.us-east-1.amazonaws.com/mynewproject"
   AWS_ECR_REGION = 'us-east-1'
-  AWS_ECS_SERVICE = 'AngualAppService'
-  AWS_ECS_TASK_DEFINITION = 'AngualAppTask'
+  AWS_ECS_SERVICE = 'mynewprojectService'
+  AWS_ECS_TASK_DEFINITION = 'mynewprojectTask'
   AWS_ECS_COMPATIBILITY = 'FARGATE'
   AWS_ECS_NETWORK_MODE = 'awsvpc'
   AWS_ECS_CPU = '256'
   AWS_ECS_MEMORY = '512'
-  AWS_ECS_CLUSTER = 'AngualAppCluster'
+  AWS_ECS_CLUSTER = 'mynewprojectcluster'
   AWS_ECS_TASK_DEFINITION_PATH = 'container-definition-update-image.json'
    }  
  stages {  
